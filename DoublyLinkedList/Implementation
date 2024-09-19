@@ -1,0 +1,29 @@
+# You finished your DoublyLinkedList class! Now we’re going to use that class to model a subway line. A doubly linked list is a great data structure to use to model a subway, as both have a first and last element, and are comprised of nodes (or stops) 
+# with links to the elements before and after them.
+
+# We will add to and remove stops from our subway line, and print it out to see what we’ve done. The .stringify_list() method is the same as the one from the LinkedList class and has been provided for you.
+
+
+
+# Create your subway line here:
+# step 1 and 2
+subway = DoublyLinkedList()
+subway.add_to_head("Times Square")
+subway.add_to_head("Grand Central")
+subway.add_to_head("Central Park")
+print(subway.stringify_list())
+
+# step 3
+subway.add_to_tail("Penn Station")
+subway.add_to_tail("Wall Street")
+subway.add_to_tail("Brooklyn Bridge")
+print(subway.stringify_list())
+
+# step 4
+subway.remove_head()
+subway.remove_tail()
+print(subway.stringify_list())
+
+# step 5
+subway.remove_by_value("Times Square")
+print(subway.stringify_list())
