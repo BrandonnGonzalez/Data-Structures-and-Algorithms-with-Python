@@ -20,6 +20,9 @@ def restock_inventory(current_inventory, restock_list):
             current_inventory[items] = quantity
     return current_inventory
 
+# Time Complexity: O(n), where n is the number of items in restock_list.
+# Space Complexity: O(1), as the function operates in constant space.
+
 
 
 # Example input
