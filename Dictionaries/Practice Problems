@@ -146,3 +146,31 @@ books = [
 
 print(highest_rated(books))
 # Expected output: {'title': 'Tomorrow, and Tomorrow, and Tomorrow', 'author': 'Gabrielle Zevin', 'rating': 4.88}
+
+
+
+# Problem 8: Index-Value Map
+# Write a function index_to_value_map() that takes in a list lst and returns a dictionary that maps the index of each element in lst to its value.
+
+# def index_to_value_map(lst):
+#     pass
+# Example Input: lst = ["apple", "banana", "cherry"]
+
+# Example Output: {0: "apple", 1: "banana", 2: "cherry"}
+
+def index_to_value_map(lst):
+    index_value_map = {}
+    
+    for index in range(len(lst)):
+        index_value_map[index] = lst[index]
+    return index_value_map
+        
+        
+lst = ["apple", "banana", "cherry"]
+print(index_to_value_map(lst))
+
+# Time Complexity: O(n), because the loop iterates n times, depending on how many values need to be mapped to a number(key).
+# Space Complexity: O(n), because the dictionary grows proportionally to the number of elements in the input list.
+
+
+        
