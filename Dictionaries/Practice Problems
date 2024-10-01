@@ -98,3 +98,51 @@ def calculate_gpa(report_card):
 report_card = {"Math": "A", "Science": "C", "History": "A", "Art": "B", "English": "B", "Spanish": "A"}
 print(calculate_gpa(report_card))
 # Example Output: 3.33
+
+
+
+
+# Problem 7: Best Book
+# Imagine you are working on a book review software like Goodreads. Write a function named highest_rated() that returns the book with the highest rating.
+
+# The function should take in a list of dictionaries named books as a parameter. Each dictionary represents data associated with a book, including its title, author, and rating. The function should return the dictionary for the book with the highest rating.
+
+# Pseudocode
+# 1) If the list is empty, return None
+# 2) Assume the first book is the highest rated (so far)
+# 3) For each book after the first:
+#   a) If the book has a higher rating, set that book
+#      as the new highest rated
+# 4) Once all books are checked, return the highest rated book we found
+
+def highest_rated(books):
+    if not books:
+        return None
+    highest_rated_book = books[0]
+    for book in books[1:]:
+        if book["rating"] > highest_rated_book["rating"]:
+            highest_rated_book = book
+    return highest_rated_book
+    
+    
+# Time Complexity: O(n), because we are iterating through the books list only once, and n is the number of books in the list.
+# Space Complexity: O(1), because no new data structures are created, and the space required does not grow with the size of the input.
+    
+    
+books = [
+    {"title": "Tomorrow, and Tomorrow, and Tomorrow",
+     "author": "Gabrielle Zevin",
+     "rating": 4.88
+    },
+    {"title": "A Fortune For Your Disaster",
+     "author": "Hanif Abdurraqib",
+     "rating": 4.47
+    },
+    {"title": "The Seven Husbands of Evenlyn Hugo",
+     "author": "Taylor Jenkins Reid",
+     "rating": 4.40
+    }
+]
+
+print(highest_rated(books))
+# Expected output: {'title': 'Tomorrow, and Tomorrow, and Tomorrow', 'author': 'Gabrielle Zevin', 'rating': 4.88}
