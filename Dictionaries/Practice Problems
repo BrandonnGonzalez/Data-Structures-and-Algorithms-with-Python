@@ -1,5 +1,5 @@
 
-# Problem 5: Restock Inventory
+# Problem 5: Restock Inventory:
 # Write a function restock_inventory() that updates an inventory dictionary based on a restock list. It accepts two parameters:
 
 # current_inventory: a dictionary where each key-value pair represents an item and its current stock in the inventory
