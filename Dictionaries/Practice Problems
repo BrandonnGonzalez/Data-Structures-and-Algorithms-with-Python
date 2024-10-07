@@ -170,7 +170,7 @@ lst = ["apple", "banana", "cherry"]
 print(index_to_value_map(lst))
 
 # Time Complexity: O(n), because the loop iterates n times, depending on how many values need to be mapped to a number(key).
-# Space Complexity: O(n), because the dictionary grows proportionally to the number of elements in the input list.
+# Space Complexity: O(n), because the dictionary grows proportionally to the number of elements in the input list..
 
 
         
