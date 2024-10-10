@@ -223,3 +223,50 @@ print(dist3)
 # 3
 # 1
 # 2
+
+
+
+# SET 2
+# QUESTION 1
+
+
+"""
+Write a function remove_char() that takes in a string s and an integer n as parameters, The function returns a new string with the nth character removed where 0 < n < len(s).
+
+def remove_char(s, n):
+    pass
+Example Usage:
+
+s = "typpo"
+fixed_s = remove_char(s, 2)
+print(fixed_s)
+Example Output: typo
+"""
+
+# PLANNING
+"""
+Will slice the input string into two components and then combine them at the end.
+1) Slice the string from the beginning up to the index n
+2) Slice the string from the index after n to the end
+3) Return these two components added together in the order: first, last
+
+"""
+
+def remove_char(s, n):
+    # Create a new string 'first_part' that includes all characters from the beginning of 's' up to the character at index 'n' (not inclusive).
+    first_part = s[:n]
+    # Create a new string 'last_part' that includes all characters from the character at index 'n+1' to the end of 's'.
+    last_part = s[n+1:]
+    # Return the result by concatenating 'first_part' and 'last_part', effectively removing the character at index 'n'.
+    return first_part + last_part
+    
+    
+    # Time Complexity: O(n), where n is the length of the input string "s". slicing creates a new string that copies up to n characters.
+    # Space Complexity: O(n), where n is the length of the input string s.
+    # - Two new strings first_part and last_part are created, each of size less than or equal to the length of s, so the additional space required is proportional to the length of s.
+
+# Example usage:
+s = "typpo"
+fixed_s = remove_char(s, 2)
+print(fixed_s)
+# prints "typo"
