@@ -170,3 +170,56 @@ print(first_unique_char(str2))
 str3 = "aabb"
 print(first_unique_char(str3))
 # -1 (no unique values)
+
+
+
+# QUESTION 6
+
+"""
+Write a function min_distance() that takes in a list of strings words and two strings word1 and word2' as parameters. The function should return the minimum distance between word1 and word2 in the list of words. The distance between one word and an adjacent word in the list is 1.
+
+"""
+# PLANNING:
+"""
+1) Set an initial minimum distance to be the worst case (word1 and word2 are first and last in the list of words)
+2) Loop through the list of words
+  a) If the word is word1, record a start index
+    i) If the end index has already been found, update the minimum distance (if smaller)
+  b) Otherwise if the word is word2, record a stop index
+    i) If the start index has already been foudn, update the minimum distance (if smaller)
+3) If the minimum distance was at some point updated, return it
+4) Otherwise, return -1
+"""
+
+def min_distance(words, word1, word2):
+    index1, index2 = -1, -1
+    min_dist = len(words)  # Use the length of the list as the maximum possible distance
+    for i, word in enumerate(words):
+        if word == word1:
+            index1 = i
+            if index2 != -1:
+                min_dist = min(min_dist, index1 - index2)
+        elif word == word2:
+            index2 = i
+            if index1 != -1:
+                min_dist = min(min_dist, index2 - index1)
+    return min_dist if min_dist != len(words) else -1
+
+# Time complexity: o(n), where n is the number of elements in the words list.
+# Space complexity: o(1), because the function uses only a few additional variables: index1, index2, and min_dist, and these variables are of constant space and do not depend on the size of the input list. No additional data structures that scale with the input size are used.
+    
+#Example Usage:
+
+words = ["the", "quick", "brown", "fox", "jumped", "the"]
+dist1 = min_distance(words, "quick", "jumped")
+dist2 = min_distance(words, "the", "jumped")
+print(dist1)
+print(dist2)
+
+words2 = ["code", "path", "code", "contribute",  "practice"]
+dist3 = min_distance(words2, "code", "practice")
+print(dist3)
+#Example Output:
+# 3
+# 1
+# 2
