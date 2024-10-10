@@ -324,3 +324,45 @@ print(count1) # output: 3
 my_str2 = "aAaAaAaAAA"
 count2 = vowel_count(my_str2)
 print(count2) # outputs 10
+
+
+
+# QUESTION 4
+
+"""
+Write a function reverse_sentence() that takes in a string sentence as a parameter and returns the string with the sentence but with the order of the words reversed. The sentence will only contain alphabetic characters and spaces to separate the words. If there is only one word in the sentence, the function returns the original string.
+
+def reverse_sentence(sentence):
+    pass
+Example Input: sentence = "I solemnly swear I am up to no good"
+Example Output: "good no to up am I swear solemnly I"
+"""
+"""
+PLANNING:
+Reverse a list of the input words and return the joined sentence
+1) First, split the sentence into a list of words
+2) Slice the entire list with a negated step parameter
+3) Join the list of words back into a sentence
+4) Return the reversed sentence
+"""
+def reverse_sentence(sentence):
+    words = sentence.split(' ') # splits the string into a list of words
+    reversed_words = words[::-1] # slices the words string with a negated step parameter
+    reversed_sentence = ' '.join(reversed_words) # joins back the sliced list of words, reversed but into a full sentence
+    return reversed_sentence # returns that string
+    
+# Time Complexity: O(n), where n is the length of the input string, "sentence". This is due to:
+# Splitting the Sentence: The sentence.split(' ') operation goes through the entire string to separate it into words, which takes O(n) time, where n is the length of the sentence.
+# Reversing the List: The slicing operation words[::-1] also takes O(m) time, where m is the number of words in the list.
+# Joining the Words: The ' '.join(reversed_words) operation goes through the list of reversed words and combines them back into a single string, which takes O(n) time again.
+
+# Space Complexity: O(n)
+# 1. List of Words: The split method creates a new list of words, which takes O(m) space, where m is the number of words.
+# 2. Reversed List: The slicing operation also creates a new list of the same size, requiring O(m) space.
+# 3. Joined String: The final string created by ' '.join(reversed_words) will also take O(n) space since it combines all characters into a single string.
+
+# Completion: 20 minutes (looked at solution)
+    
+sentence = "I solemnly swear I am up to no good"
+print(reverse_sentence(sentence))
+    
