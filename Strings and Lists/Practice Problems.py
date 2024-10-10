@@ -270,3 +270,57 @@ s = "typpo"
 fixed_s = remove_char(s, 2)
 print(fixed_s)
 # prints "typo"
+
+
+
+
+# QUESTION 3
+"""
+Write a function vowel_count() that takes in a string s as a parameter and returns the number of vowels in the given string.
+
+def vowel_count(s):
+    pass
+Example Usage:
+my_str = "hello world"
+my_str2 = "aAaAaAaAAA"
+my_str3 = "ths strng s mssng vwls"
+
+count1 = vowel_count(my_str)
+print(count1)
+count2 = vowel_count(my_str2)
+print(count2)
+Example Output:
+3
+10
+0
+"""
+
+"""
+PLANNING:
+1. Need to create a list a string that contains all vowels.
+2. Should definitely make the string a lowercase string so it does not miscount uppercased/lowercase vowels for example.
+3. for all of the letters in the string, if those letters are also in the vowels string, increment a counter
+4. return the counter for the given string input 
+"""
+
+def vowel_count(s):
+    vowels = "aAeEiIoOuU"
+    vowel_counter = 0
+    for letters in s:
+        if letters in vowels:
+            vowel_counter += 1
+            
+    return vowel_counter
+
+# Time Complexity: O(n), where n is the length of the input string s. Worst case runtime is o(n) because we are using a for loop to iterate through the entire "s" string to look for vowels.
+# Space Complexity: O(1), because we are not using any additional data structures and our space does not neccesarily grow with our input string, "s".
+# Completion: 6 minutes
+
+# Example Usage:
+my_str = "hello world"
+count1 = vowel_count(my_str)
+print(count1) # output: 3
+
+my_str2 = "aAaAaAaAAA"
+count2 = vowel_count(my_str2)
+print(count2) # outputs 10
