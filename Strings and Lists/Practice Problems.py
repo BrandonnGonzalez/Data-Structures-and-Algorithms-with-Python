@@ -362,6 +362,46 @@ def reverse_sentence(sentence):
 # 3. Joined String: The final string created by ' '.join(reversed_words) will also take O(n) space since it combines all characters into a single string.
 
 # Completion: 20 minutes (looked at solution)
+
+
+
+# SESSION 2
+# SET 1
+# QUESTION 1
+
+"""
+Write a function sum_of_number_strings() that takes in a list of strings nums. Each string is a representations of integers. The function should return the sum of these strings as an integer.
+
+def sum_of_number_strings(nums):
+    pass
+Example Usage:
+
+nums = ["10", "20", "30"]
+sum = sum_of_number_strings(nums)
+print(sum)
+Example Output: 60
+"""
+
+
+# PLANNING
+"""
+1) First, set a sum variable to 0 that we will add to and return later
+2) Loop through each string in the list
+  a) Convert the string to an integer 
+  b) and add it to the sum
+3) Return the total sum
+"""
+def sum_of_number_strings(nums):
+    sum_count = 0 # 1.
+    for numbers in nums: # 2.
+        numbers = int(numbers) # a.
+        numbers += sum_count # b.
+    return sum_count # 3.
+
+nums = ["10", "20", "30"]
+sum = sum_of_number_strings(nums)
+print(sum)
+        
     
 sentence = "I solemnly swear I am up to no good"
 print(reverse_sentence(sentence))
