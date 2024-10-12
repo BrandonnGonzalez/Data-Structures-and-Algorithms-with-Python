@@ -372,37 +372,25 @@ def reverse_sentence(sentence):
 """
 Write a function sum_of_number_strings() that takes in a list of strings nums. Each string is a representations of integers. The function should return the sum of these strings as an integer.
 
-def sum_of_number_strings(nums):
-    pass
-Example Usage:
-
-nums = ["10", "20", "30"]
-sum = sum_of_number_strings(nums)
-print(sum)
-Example Output: 60
-"""
-
-
 # PLANNING
+1. need a var that will hold  the int value of the sum
+2. for all of the numbers in the string...
+3. convert those numbers into an int and add them to the var we made
+4. return that var
 """
-1) First, set a sum variable to 0 that we will add to and return later
-2) Loop through each string in the list
-  a) Convert the string to an integer 
-  b) and add it to the sum
-3) Return the total sum
-"""
+
 def sum_of_number_strings(nums):
-    sum_count = 0 # 1.
-    for numbers in nums: # 2.
-        numbers = int(numbers) # a.
-        numbers += sum_count # b.
-    return sum_count # 3.
+    sum_holder = 0
+    for numbers in nums:
+        sum_holder += int(numbers)
+    return sum_holder
+
+# Time Complexity: O(n), where n is the total number of characters in the input string nums. This is due to the for loop iterating through the entire input string and adding it into
+# the counter variable that sums up all of the numbers.
+# Space Complexity: O(1), because we do not require any extra space; no additional dsa needed and we only use one variable.
+# Completion: 5 minutes
 
 nums = ["10", "20", "30"]
 sum = sum_of_number_strings(nums)
 print(sum)
-        
-    
-sentence = "I solemnly swear I am up to no good"
-print(reverse_sentence(sentence))
-    
+# Example Output: 60
