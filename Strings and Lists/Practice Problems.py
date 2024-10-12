@@ -437,3 +437,65 @@ nums = [2, 2, 3, 4, 4, 4, 5, 5, 6, 7]
 print(remove_duplicates(nums))
 # Example output: non_duplicates = [2, 3, 4, 5, 6, 7]
 
+
+
+# QUESTION 3
+
+
+"""
+Write a function reverse_only_letters() that takes in a string s as a parameter. The function reverses the order of the letters in the string and returns the 
+new string. Non-letter characters should remain in their original positions.
+
+Example Usage:
+
+s = "a-bC-dEf-ghIj"
+reversed_s = reverse_only_letters(s)
+print(reversed_s)
+Example Output: j-Ih-gfE-dCba
+"""
+
+# PLANNING
+"""
+Make a list of all letters in the string, then build a new string that reverses only the letters.
+1) Create an empty list for the letters
+2) Loop through the string, and add any letters to the list
+3) Make an index variable, set to end of letters list
+4) Create an empty results string
+5) Loop through each character in the original string
+  a) If the char was a letter:
+     i) add the value at letters[index] to results
+    ii) reduce index by 1
+  b) Otherwise, add the char itself to results
+6) Return results
+
+"""
+
+def reverse_only_letters(s):
+    letters = []
+    for c in s:
+        if c.isalpha():
+            letters.append(c)
+    
+    letters_index = len(letters) - 1 # Start from the end of the letters list
+    results = " "
+
+    for c in s:
+        if c.isalpha():# if the character is alpahabetic 
+            results += letters[letters_index] # adds the current letter in the letters list, to the results string
+            letters_index -= 1 # decrements the current letters_index to continue reversing through the list
+        else: # if not other character is alphabetic and could be like a dash or number, add that to the results string.
+            results += c
+    return results
+
+# Time Complexity: O(n), where n is the length of the string. The for loop iterates for all of the characters in the string, which is o(n) time. The second 
+# loop also does the same which is o(n) time.
+# Space Complexity: O(n), due to using a list to store all of the letters in the string, which in the worst case can hold all n characters 
+# (if all characters are letters).  Additionally, am building the result string, which will also require o(n) time.
+# Completion: 15 minutes 
+
+#Example Usage:
+s = "a-bC-dEf-ghIj"
+reversed_s = reverse_only_letters(s)
+print(reversed_s)
+#Example Output: j-Ih-gfE-dCba
+
