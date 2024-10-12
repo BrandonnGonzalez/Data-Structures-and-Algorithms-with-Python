@@ -394,3 +394,46 @@ nums = ["10", "20", "30"]
 sum = sum_of_number_strings(nums)
 print(sum)
 # Example Output: 60
+
+
+
+
+# QUESTION 2
+
+"""
+Write a function remove_duplicates() that takes in a sorted list of integers nums as a parameter and removes all duplicates in the list. 
+The function returns the modified list.
+
+def remove_duplicates(nums):
+    pass
+Example Input: nums = [1,1,1,2,3,4,4,5,6,6]
+Example Output: no_dups = [1,2,3,4,5,6]
+"""
+
+# PLANNING
+"""
+1.  create a new list that will contain the non-duplicate values
+2. For all of the numbers in the nums list...
+3. if those numbers are NOT in the non-duplicates list... add them
+4. Add the end of the for loop return the new, non-duplicates list
+"""
+
+def remove_duplicates(nums):
+    non_duplicates = []
+    for numbers in nums:
+        if numbers not in non_duplicates:
+            non_duplicates.append(numbers)
+    return non_duplicates
+
+# Time Complexity: O(n^2), where n is the size of the input nums list. This is also due to the for loop having to iterate through the entire nums list, as well
+# as the in operator checking if the numbers are not in the non_duplicates list, running in o(n)  time, making the worst case runtime, O(n^2).
+# Worst case, it has to add multiple duplicate numbers into the non_duplicates list.
+# Space Complexity: O(n), due to the program returning a new list which contains the non_duplicates.
+# Completion: 5 minutes
+# A better solution would be using a Set which is faster for membership checks, o(1).
+
+# Example input
+nums = [2, 2, 3, 4, 4, 4, 5, 5, 6, 7]
+print(remove_duplicates(nums))
+# Example output: non_duplicates = [2, 3, 4, 5, 6, 7]
+
