@@ -557,3 +557,73 @@ print(l2)
 # 1
 
 
+
+# QUESTION 5
+
+"""
+In the game League of Legends, Teemo attacks his enemy Ashe with poison arrows. Write a function find_poisoned_duration() that takes in two parameters: 
+time_series (the time at which Teemo's attacks hits Ashe) and time_duration (the duration of the poisoning effect). The function returns the total time that 
+Ashe is in a poisoned condition.
+
+time_series is a list of integers that represents the times at which Teemo attacks and makes Ashe poisoned for the exact time_duration.
+
+If Teemo hits Ashe while she is still poisoned, the poison's duration starts over. For example, if Teemo attacks at times 1 and 4 for 3 seconds, 
+the states at each time would be:
+
+1: attacked
+2: in poison state
+3: in poison state
+4: attacked, poison duration resets to 3
+5: in poison state
+6: in poison state
+7: in poison state 
+8: in normal state
+This means that the total time that Ashe is in a poisoned condition is 5.
+
+Example Usage:
+time_series = [1,4,9]
+damage = find_poisoned_duration(time_series, 3)
+print(damage)
+Example Output: 8
+"""
+
+# PLANNING
+"""
+-  For each attack, check if the duration is interrupted by another attack, and add up the actual duration of each poison effect.
+1) Create an empty variable for total poisoned duration
+2) For each attack time except the last one
+  a) Actual duration is the smaller of: 
+      - the duration input
+      - the next attack time minus this attack time
+  b) Add the actual duration to the total
+3) The last attack will always fully complete, 
+   so add one more duration to the total
+4) Return total
+
+"""
+
+def find_poisoned_duration(time_series, duration):
+    total_duration = 0
+    for i in range(len(time_series)-1):
+        # Calculate the actual poisoning time between two attacks
+        actual_duration = min(time_series[i+1] - time_series[i], duration)
+
+        total_duration += actual_duration
+    # Add the duration of the last attack
+    total_duration += duration
+    return total_duration
+
+"""
+Time Complexity: O(n) where n is the length of the time_series input list. It only loops through once. This is due to the iteration of the for loop iterating 
+through the entire time_series of attacks, to then figure out the total duration. 
+Space Complexity: O(1), because there are no data structures that grow given the input list. There are a few variables used, but they are integers and 
+constant time operations.
+"""
+
+# Example Usage:
+time_series = [1, 3, 9]
+damage = find_poisoned_duration(time_series, 3)
+print(damage)
+# Example Output: 8
+
+
