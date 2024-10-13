@@ -627,3 +627,77 @@ print(damage)
 # Example Output: 8
 
 
+
+# QUESTION 6
+
+"""
+Write a function sum_of_unique_elements() that takes in two lists of integers, lst1 and lst2, as parameters and returns 
+the sum of the elements that are unique in lst1.
+
+An element is unique if:
+
+it appears exactly once in lst1
+it does not appear in lst2
+def sum_of_unique_elements(lst1, lst2):
+	pass
+Example Usage:
+
+lstA = [1, 2 ,3, 4] 
+lstB = [3, 4, 5, 6]
+lstC = [7, 7, 7, 7]
+
+sum1 = sum_of_unique_elements(lstA, lstB)
+print(sum1)
+
+sum2 = sum_of_unique_elements(lstC, lstB)
+print(sum2)
+Example Output
+
+3
+0
+"""
+# PLANNING
+"""
+1. int a variable that holds the sum
+2. For all of the numbers in list1:
+3. if numbers not in list2:
+4. sum += 1
+5. return sum
+"""
+
+def sum_of_unique_elements(lst1, lst2):
+    sum_counter = 0 # Will hold the sum of all of the unique elements
+    for numbers in lst1: # for all of the numbers in lst1...
+        if lst1.count(numbers) == 1 and numbers not in lst2: # checks if the number in lst1 only occurs once and if it isnt in lst2
+            sum_counter += numbers # if the if statement passes, it will add that number to the sum counter
+    return sum_counter # returns the sum_counter integer once the for loop is done iterating.
+
+"""
+Time Complexity:O(n^2), where n is the length of the input list lst1. It is O(n^2) due to there being technically a nested for loop.
+The outer for loop iterates through all of the numbers in lst1, then the .count() operator counts (iterates) through all of the
+numbers in lst1 to check if they are unique, which counts as a for loop, combining the time complexity into O(n^2).
+- A more optimal solution would be to use a set to find the unique elements in the given lists.
+- For example, creating a dictionary to count occurrences of elements in lst1, and converting lst2 to a set for O(1) lookups
+would result in a time complexity of O(n * m), where n is the length of lst1 (for counting and iterating over it), and
+m is the length of lst2 (for converting lst2 into a set).
+
+Space Complexity: O(1), because no data structures are used that grow with the input parameters. The variables used are integers,
+so they do not take up much space.
+"""
+# Completion: 20 minutes
+
+#Example Usage:
+lstA = [1, 2 ,3, 4] 
+lstB = [3, 4, 5, 6]
+lstC = [7, 7, 7, 7]
+
+sum1 = sum_of_unique_elements(lstA, lstB)
+print(sum1)
+
+sum2 = sum_of_unique_elements(lstC, lstB)
+print(sum2)
+# Example Output
+# 3
+# 0
+
+
