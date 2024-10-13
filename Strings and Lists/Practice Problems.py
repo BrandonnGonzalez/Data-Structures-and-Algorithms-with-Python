@@ -499,3 +499,60 @@ reversed_s = reverse_only_letters(s)
 print(reversed_s)
 #Example Output: j-Ih-gfE-dCba
 
+
+
+
+# QUESTION 4
+
+"""
+Write a function longest_uniform_substring() that takes in a string s and returns the length of the longest uniform substring. 
+A uniform substring consists of a single repeated character.
+
+"""
+
+# PLANNING
+"""
+1) If the input string is empty, return 0
+2) Set a variable to track the largest uniform substring and the current uniform substring
+3) Loop through the length of the input string
+  a) If the current and previous characters are equal, increase the current uniform substring counter and update the largest uniform 
+     substring counter
+  b) Otherwise, reset the current uniform substring counter to 1
+4) Return the largest uniform substring counter
+"""
+
+def longest_uniform_substring(s):
+    if not s:
+        return 0 
+    max_substring = 1
+    current_substring = 1
+    for i in range(1, len(s)):
+        if s[i] == s[i - 1]: # O(1) time operation. The current letter gets compared to the previous letter in the iteration 
+            current_substring += 1
+            max_substring = max(max_substring, current_substring) # constant time operation O(1)
+        else:
+            current_substring = 1
+    return max_substring
+
+    """
+    Time Complexity: O(n), where n is the length of the input string "s". This is due to the for loop we are using to iterate through the entire string,
+    which compares the current letter to it's previous letter.
+
+    Space Complexity: O(1), due to a fixed amount of space being used and due to their not being any additional data structures that grow with the size of the 
+    input, or hold values or run through the code.
+    max_substring and current_substring only hold integers so there is no additional space required.
+    """
+
+# Example input
+s1 = "aabbbbCdAA"
+l1 = longest_uniform_substring(s1)
+print(l1)
+
+s2 = "abcdef"
+l2 = longest_uniform_substring(s2)
+print(l2)
+# Example output
+# 4 
+# 1
+
+
