@@ -541,6 +541,7 @@ def longest_uniform_substring(s):
     Space Complexity: O(1), due to a fixed amount of space being used and due to their not being any additional data structures that grow with the size of the 
     input, or hold values or run through the code.
     max_substring and current_substring only hold integers so there is no additional space required.
+    Completion: 15 minutes
     """
 
 # Example input
