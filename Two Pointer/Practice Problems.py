@@ -36,3 +36,65 @@ def is_prime(n):
             return False
         i += 1
     return True
+
+
+
+
+# QUESTION 2
+
+
+
+"""
+Write a function reverse_list() that takes in a list lst and returns elements of the list in reverse order. 
+The list should be reversed in-place without using list slicing (e.g. lst[::-1]).
+
+Instead, use the two-pointer approach, which is a common technique in which we initialize two variables 
+(also called a pointer in this context) to track different indices or places in a list or string, then moves the pointers to 
+point at new indices based on certain conditions. In the most common variation of the two-pointer approach, we initialize one 
+variable to point at the beginning of a list and a second variable/pointer to point at the end of list. We then shift the 
+pointers to move inwards through the list towards each other, until our problem is solved or the pointers reach the opposite 
+ends of the list.
+
+def reverse_list(lst):
+    pass
+Example Input: [1, 2, 3, 4, 5]
+Example Output: [5, 4, 3, 2, 1]
+
+"""
+
+# PLANNING
+"""
+1) Initialize two pointers: one at the beginning (`left`) and one at the end (`right`).
+2) While `left` is less than `right`:
+  a) Swap the elements at `left` and `right`.
+  b) Move `left` pointer one step right (increase by 1).
+  c) Move `right` pointer one step left (decrease by 1).
+3) Return the list as the elements are now reversed in place.
+
+"""
+def reverse_list(lst):
+    left = 0
+    right = len(lst) - 1
+    
+    while left < right:
+        # Swaps elements using a temporary variable
+        temp = lst[left]
+        lst[left] = lst[right]
+        lst[right] = temp
+        
+        # Move the pointers towards the center
+        left += 1
+        right -= 1
+    
+    return lst
+    
+    """
+    Time Complexity: O(n), where n is the length of the list. Because the number of operations grows proportionally with the size of the input list.
+    Space Complexity: O(1), because there are no additional data structures or memory that scales with the size of the input list. The only extra space used is for the variables left, right, and temp, which remain constant regardless of the size of the input list.
+    """
+
+# Example input
+lst = [1, 2, 3, 4, 5]
+print(reverse_list(lst))
+# Output:
+# [5,4, 3, 2, 1]
