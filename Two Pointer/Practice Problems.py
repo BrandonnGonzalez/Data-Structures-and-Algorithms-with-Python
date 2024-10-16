@@ -152,7 +152,7 @@ def is_palindrome(s):
     return True
     
     """
-    Time Complexity: O(n), where n is the length of the string. This is due to the pointers going through the entire input string until they equal  to each other or cross paths.
+    Time Complexity: O(n), where n is the length of the string. This is due to the pointers going through the entire input string until they equal  to each other or cross paths. The number of operations grows linearly with the size of the input string.
     
     Space Complexity: O(1), because no extra space is needed or any data structures that grow in size because of the input. The variables, left and right, are constant.
     """
