@@ -104,7 +104,7 @@ print(reverse_list(lst))
 
 
 # SET 2
-# QUESTION
+# QUESTION 2
 
 """
 Write a function is_palindrome() that takes in a string s as a parameter and returns True if the string is a palindrome and False otherwise. You may assume the string contains only lowercase alphabetic characters.
