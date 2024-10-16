@@ -162,3 +162,77 @@ s2 = "helloworld"
  
 print(is_palindrome(s)) # True
 print(is_palindrome(s2)) # False
+
+
+
+
+
+# SET 3
+# QUESTION 2
+
+
+"""
+Write a function two_sum() that takes in a sorted list of integers nums and an integer target as parameters and returns the indices of the two numbers that add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the indices in any order.
+
+The function must use the two-pointer approach, which is a common technique in which we initialize two variables (also called a pointer in this context) to track different indices or places in a list or string, then moves the pointers to point at new indices based on certain conditions. In the most common variation of the two-pointer approach, we initialize one variable to point at the beginning of a list and a second variable/pointer to point at the end of list. We then shift the pointers to move inwards through the list towards each other, until our problem is solved or the pointers reach the opposite ends of the list.
+
+def two_sum(nums, target):
+    pass
+Example Usage:
+
+nums = [2,7,11,15,7]
+sol1 = two_sum(nums, 9)
+print(sol1)
+sol2 = two_sum(nums, 18)
+print(sol2)
+Example Output
+
+[0,1]
+[1,2]
+"""
+
+# Understanding
+""" 
+1. What do we do if there are multiple pairs that could work but we only need one?
+Since the problem guarantees exactly one solution, this situation will not occur.
+What if the list has negative numbers?
+2. The approach still works as the list is sorted, allowing the two-pointer technique to be effective regardless of the sign of the numbers.
+"""
+
+# PLANNING
+"""
+1) Initialize two pointers: `left` at the start of the list and `right` at the end.
+2) While the `left` pointer is less than the `right` pointer:
+  a) Calculate the `current_sum` of the numbers at the two pointers.
+  b) If `current_sum` equals `target`, return the indices `[left, right]`.
+  c) If `current_sum` is less than `target`, increment the `left` pointer to try a larger sum.
+  d) If `current_sum` is greater than `target`, decrement the `right` pointer to try a smaller sum.
+3) Since the problem guarantees a solution, the loop will always return before it terminates.
+"""
+
+# Implementation
+def two_sum(nums, target):
+    left = 0 
+    right = len(nums) - 1
+    
+    while left < right: # while the left pointer is less than the right... (havent met yet)
+        current_sum = nums[left] + nums[right] #keeps track of what the pointers add up to
+        if current_sum == target: #if the  two pointers are equal to the target:
+            return [left, right] # returns the indices of the left and right pointer
+        elif current_sum < target: # else-if the pointers add up less than the target:
+            left += 1  # Need a larger sum
+        else:
+            right -= 1  # Need a smaller sum
+        
+    """
+    Time Complexity: O(n), where n is the length of nums. The number of operations grow with the input list "nums". The while loop is also an operator that iterates the pointers through the entire list, taking linear time.
+    
+    Space Complexity: O(1), because there are no additional data structures that grow with the input list "nums". The variables that are initialized are all constant.
+    """
+
+
+nums = [2,7,11,15,7]
+sol1 = two_sum(nums, 9)
+print(sol1) # prints [0, 4]
+sol2 = two_sum(nums, 18)
+print(sol2) # prints [2, 4]
