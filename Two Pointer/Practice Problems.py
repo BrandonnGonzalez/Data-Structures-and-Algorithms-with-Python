@@ -98,3 +98,67 @@ lst = [1, 2, 3, 4, 5]
 print(reverse_list(lst))
 # Output:
 # [5,4, 3, 2, 1]
+
+
+
+
+
+# SET 2
+# QUESTION
+
+"""
+Write a function is_palindrome() that takes in a string s as a parameter and returns True if the string is a palindrome and False otherwise. You may assume the string contains only lowercase alphabetic characters.
+
+The function must use the two-pointer approach, which is a common technique in which we initialize two variables (also called a pointer in this context) to track different indices or places in a list or string, then moves the pointers to point at new indices based on certain conditions. In the most common variation of the two-pointer approach, we initialize one variable to point at the beginning of a list and a second variable/pointer to point at the end of list. We then shift the pointers to move inwards through the list towards each other, until our problem is solved or the pointers reach the opposite ends of the list.
+
+def is_palindrome(s):
+    pass
+Example Usage:
+
+s = "amanaplanacanalpanama"
+s2 = "helloworld"
+
+print(is_palindrome(s))
+print(is_palindrome(s2))
+Example Output:
+
+True
+False
+"""
+
+# UNDERSTANDING
+"""
+What if the string is empty?
+- An empty string is considered a palindrome as it reads the same forward and backward.
+"""
+
+# PLANNING
+"""
+1) Initialize two pointers, left at the start (0) and right at the end (length of s - 1)
+2) While left pointer is less than right pointer:
+  a) If characters at left and right pointers do not match, return False
+  b) Increment left pointer and decrement right pointer
+3) If all characters match, return True
+"""
+
+def is_palindrome(s):
+    left = 0
+    right = len(s) - 1
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+    
+    """
+    Time Complexity: O(n), where n is the length of the string. This is due to the pointers going through the entire input string until they equal  to each other or cross paths.
+    
+    Space Complexity: O(1), because no extra space is needed or any data structures that grow in size because of the input. The variables, left and right, are constant.
+    """
+    
+s = "amanaplanacanalpanama"
+s2 = "helloworld"
+ 
+print(is_palindrome(s)) # True
+print(is_palindrome(s2)) # False
