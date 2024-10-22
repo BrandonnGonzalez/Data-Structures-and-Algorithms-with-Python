@@ -113,6 +113,7 @@ class DoublyLinkedList:
 
     return node_to_remove
 
+# creates the given variable that is used within the method to turn a list into a string
   def stringify_list(self):
     string_list = ""
     current_node = self.head_node
