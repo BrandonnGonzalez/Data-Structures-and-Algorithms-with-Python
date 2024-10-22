@@ -4,7 +4,7 @@
 # We will add to and remove stops from our subway line, and print it out to see what we’ve done. The .stringify_list() method is the same as the one from the LinkedList class and has been provided for you.
 
 
-
+# Example usages below:
 # Create your subway line here:
 # step 1 and 2
 subway = DoublyLinkedList()
