@@ -101,6 +101,37 @@ print(reverse_list(lst))
 # [5,4, 3, 2, 1]
 
 
+# QUESTION 5
+"""
+Write a function first_palindrome() that takes in a list of strings words as a parameter and returns the first palindromic string in the list. A string is palindromic if it reads the same forward and backward. 
+If there is no such string, return an empty string 
+
+def first_palindrome(words):
+    pass
+Example Usage:
+
+words = ["abc","car","ada","racecar","cool"]
+palindrome1 = first_palindrome(words)
+print(palindrome1)
+
+# Example output : ada
+"""
+def is_palindrome(s):
+    left, right = 0, len(s) - 1 # left and right pointers
+    while left < right: 
+        if s[left] != s[right]: #if the character at the left pointer is not equal to the character at the right pointer:
+            return False
+        left += 1 
+        right -= 1
+    return True # return True that the input is a palindrome if the if statements are not verified.
+
+def first_palindrome(words):
+    for word in words: # for all of the word in words, check for each word being a palindrome,
+        if is_palindrome(word):
+            return word # whatever word is a palindrome, return it
+    return "" # if there are no words, returns an empty string
+
+
 
 
 
