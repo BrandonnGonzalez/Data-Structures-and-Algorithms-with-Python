@@ -132,6 +132,49 @@ def first_palindrome(words):
     return "" # if there are no words, returns an empty string
 
 
+# QUESTION 6
+
+"""
+Write a function remove_duplicates() that takes in a sorted list of integers nums as a parameter and removes the duplicates in-place such that each element appears only once. Do not allocate extra space for another array; you must do this by modifying the input list with O(1) extra memory. The function returns the new length of the list.
+
+def remove_duplicates(nums):
+    pass
+Example Usage:
+
+nums = [1,1,2,3,4,4,4,5]
+print(nums)
+print(remove_duplicates(nums))
+print(nums) # same list
+Example Output:
+
+[1,1,2,3,4,4,4,5]
+5
+[1,2,3,4,5]
+
+"""
+
+def remove_duplicates(nums):
+    if not nums:  # If the list is empty, return 0
+        return 0
+    
+    # Initialize the pointer for the last unique element
+    left = 0
+    
+    # Iterate through the list starting from the second element
+    for right in range(1, len(nums)):
+        if nums[right] != nums[left]:
+            left += 1
+            nums[left] = nums[right]  # Move the next unique element into position
+    
+    # Return the new length (left + 1) because 'left' is zero-indexed
+    return left + 1
+
+# Example Usage
+nums = [1,1,2,3,4,4,4,5]
+print(nums)
+new_length = remove_duplicates(nums)
+print(new_length)  # Should print the new length of the list
+print(nums[:new_length])  # Print the modified list up to the new length
 
 
 
