@@ -239,9 +239,40 @@ print(is_palindrome(s)) # True
 print(is_palindrome(s2)) # False
 
 
+# QUESTION 3
+"""
+The two_sum() problem can also be solved without using the two pointer technique (as you may have seen it in previous units)! Evaluate the time and space complexity of your two-pointer solution.
+
+Then, evaluate the time and space complexity of the following solution:
+
+def two_sum(nums, target):
+    prev_map = {}  # Value to index mapping
+    
+    for i in range(len(nums)):
+        diff = target - nums[i]
+        if diff in prev_map:
+            return [prev_map[diff], i]
+        prev_map[nums[i]] = i
 
 
+def two_sum(nums, target):
+    left = 0
+    right = len(nums) - 1
+    
+    while left < right:
+        current_sum = nums[left] + nums[right]
+        if current_sum == target:
+            return [left, right] 
+        elif current_sum < target:
+            left += 1  # Need a larger sum
+        else:
+            right -= 1  # Need a smaller sum
 
+
+Overall, the second solution is more optimal in terms of time and space complexity, where the time complexity is O(n), where n is the length of the input list, where the two pointers go through it once.
+The space complexity is O(1), because there are no data structures or variables that grow with the input list of algorithm. The two variables, left and right, stay constant no matter what.
+
+"""
 # SET 3
 # QUESTION 2
 
