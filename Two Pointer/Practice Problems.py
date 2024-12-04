@@ -1,5 +1,5 @@
 # SET 1
-# QUESTION 1
+# QUESTION 1.
 
 """
 Write a function is_prime() that takes in a positive integer n and returns True if it is a prime number and False otherwise. 
